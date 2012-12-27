@@ -3,8 +3,7 @@ This project is implementation of the Project management processes game describe
 
 ##TODO
 - Fix check results order 
-- Remove jquery-ui.css usage(ised only for list boxes
-- Convert to javascript code to MVC pattern
+- Remove jquery-ui.css usage(used only for list boxes)
 - Add percentage of score in Check results 
 - Add time spent in Check results 
 

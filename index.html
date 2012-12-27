@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>jQuery UI Sortable - Connect lists</title>
+    <title>PMBook(v4) - Processes game </title>
     
 	<!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -25,9 +25,9 @@
 	  
       /* Custom page CSS
       -------------------------------------------------- */
-	  #ul_default,#ul_1,#ul_2,#ul_3,#ul_4,#ul_5 { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; width:100% }
+	  #ul_0,#ul_1,#ul_2,#ul_3,#ul_4,#ul_5 { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; width:100% }
 	  #ul_1,#ul_2,#ul_3,#ul_4,#ul_5 { border: 1px solid black}
-      #ul_default li,#ul_1 li,#ul_2 li,#ul_3 li,#ul_4 li,#ul_5 li{ margin: 2px 3px 5px 3px; padding: 1px; font-size: 0.7em; width: 92%; }	  
+      #ul_0 li,#ul_1 li,#ul_2 li,#ul_3 li,#ul_4 li,#ul_5 li{ margin: 2px 3px 5px 3px; padding: 1px; font-size: 0.7em; width: 92%; }	  
 	  
     </style>	    
 </head>
@@ -41,12 +41,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">PMP Project Management Proces game</a>
+          <a class="brand" href="#">PMBook(v4)- Processes game </a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="#restartModal" data-toggle="modal">Restart game</a></li>			  		
-              <li><a href="#checkResultstModal" data-toggle="modal" onClick="showResults()">Check results</a></li>              
-            </ul>
+            <ul id="nav_menu" class="nav"></ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -57,24 +54,22 @@
     </div>
 
 
- 
-	<!-- Modal Restart -->
-	<div id="restartModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ 	<!-- Modal Start game -->
+	<div id="startModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="restartModalLabel">Restart game</h3>
+		<h3 id="restartModalLabel">Start game</h3>
 	  </div>
 	  <div class="modal-body">
-		<p>Your progess will be lost.</p>
-		<p>Do you want to restart current Project Management Proces game?</p>
+		<p>TODO INSTRUCTIONS</p>		
 	  </div>
 	  <div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" onclick="init()">Restart</button>
+		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" onclick="gameController.startGame();">Start game</button>
 	  </div>
 	</div>	
 	
-	<!-- Modal Check Results -->
+	<!-- Modal Check Results -->	
 	<div id="checkResultstModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -82,6 +77,7 @@
 	  </div>
 	  <div class="modal-body" id="results"></div>
 	  <div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true" onclick="gameController.initGame();">Restart game</button>	  
 		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>		
 	  </div>
 	</div>	
@@ -98,7 +94,19 @@
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>	
     <script src="js/bootstrap.js"></script>
-	<script src="js/pmp.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/model.js"></script>
+	<script src="js/view.js"></script>
+	<script>	
+		$(function() {		
+			gameController = new GameController();
+			gameController.init();   		
+		
+			//arrayElementsPerGroup = getElementsPerGroup(arrayOfObjects);
+			//init()	;
+		});
+	</script>
 </body>
 </html>
 

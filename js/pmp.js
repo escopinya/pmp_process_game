@@ -5,7 +5,7 @@ SHOW ERRORS
 */
 
 //Data
-var arrayOfObjects1 = [
+var arrayOfObjects = [
 	{"group":2, "order":1, "desc":"Plan how you will do the planning."},
 	{"group":2, "order":2, "desc":"Determine detailed Requirements."},
 	{"group":2, "order":3, "desc":"Develop Project Scope Statement"},
@@ -14,10 +14,8 @@ var arrayOfObjects1 = [
 ];
 
 var gblOrder;
-
 var arrayOfProcessDesc = ["","Initiating", "Planning", "Executing", "M&C", "Closing"];
-	
-var arrayOfObjects = [
+var arrayOfObjects1 = [
 	{"group":1, "order":1, "desc":"Select project manager"},
 	{"group":1, "order":2, "desc":"Collect processes, procedures and historical information"},
 	{"group":1, "order":3, "desc":"Divide large projects into phases"},
@@ -157,10 +155,10 @@ function showResults(){
 
 function getResultsOK(group_id, isOrdered){   
 	var numOK = 0;
-	gblOrder =1;	
-	i = $("#ul_"+group_id+" li").each(function(){		
-		if (i==0) i++;
-		//alert(i + $(this).attr('order'));		
+	gblOrder = 1;
+	
+	$("#ul_"+group_id+" li").each(function(){				
+		//alert(gblOrder + $(this).attr('order'));		
 		if (isOrdered){
 			if (parseInt($(this).attr('group')) == group_id && parseInt($(this).attr('order')) == gblOrder){
 				numOK++;
@@ -170,7 +168,6 @@ function getResultsOK(group_id, isOrdered){
 		else{
 			if (parseInt($(this).attr('group')) == group_id) numOK++;        
 		}
-		return i;
     });	
 	return numOK;
 };
