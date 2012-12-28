@@ -2,7 +2,7 @@ var GameView = function (){};
 
 GameView.prototype.clear = function() {	$('.row').html('');}
 
-GameView.prototype.clearResults = function() {	$('.results').html('');}
+GameView.prototype.clearResults = function() {	$(results).html('');}
 
 GameView.prototype.buildMenu = function(stage_id){
 	switch(stage_id){
@@ -31,7 +31,7 @@ GameView.prototype.addProcesses2Group = function (group_id, processesList){
 	}			
 }
 
-GameView.prototype.showResults = function(text) {	$('.results').append(text);}                        
+GameView.prototype.showResults = function(text) {	$(results).append(text);}                        
 
 
 /*
