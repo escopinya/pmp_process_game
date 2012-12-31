@@ -7,19 +7,28 @@
     
 	<!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />  
+	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" /> 
     <style type="text/css">	  
-      /* Custom page CSS
-      -------------------------------------------------- */
+      /* Custom page CSS */      
+	  
+	  h2 {font-size: 15.5px; line-height: 20px; margin: 0px 0px 0px 0px;}
+	  
 	  #ul_0,#ul_1,#ul_2,#ul_3,#ul_4,#ul_5 { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; width:100% }
 	  #ul_1,#ul_2,#ul_3,#ul_4,#ul_5 { border: 1px solid black}
-      #ul_0 li,#ul_1 li,#ul_2 li,#ul_3 li,#ul_4 li,#ul_5 li{ margin: 2px 3px 5px 3px; padding: 1px; font-size: 0.7em; width: 92%; }	  
+      #ul_0 li,#ul_1 li,#ul_2 li,#ul_3 li,#ul_4 li,#ul_5 li{ margin: 2px 3px 5px 3px; padding: 1px; font-size: 0.7em; width: 92%; }	  	  	  
+	
+	  .container {margin-top: 45px}
+	  @media (max-width: 979px){
+		.container {margin-top: 0px}
+	  }
 	  
+	  .icon-green{color: #009900};
     </style>	    
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top ">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -35,15 +44,17 @@
       </div>
     </div>
 
+	
+	
 	<div class="container">
 		<div class="row"></div>
     </div>
 
-
  	<!-- Modal Start game -->
 	<div id="startModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+		
 		<h3 id="restartModalLabel">Start game</h3>
 	  </div>
 	  <div class="modal-body">
@@ -58,7 +69,7 @@
 	<!-- Modal Check Results -->	
 	<div id="checkResultstModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
 		<h3 id="checkResultsModalLabel">Check results</h3>
 	  </div>
 	  <div class="modal-body" id="results"></div>
@@ -72,8 +83,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>	
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="js/jquery-ui.js"></script>	
     <script src="js/bootstrap.js"></script>
 	<script src="js/config.js"></script>
 	<script src="js/controller.js"></script>
@@ -83,9 +94,6 @@
 		$(function() {		
 			gameController = new GameController();
 			gameController.init();   		
-		
-			//arrayElementsPerGroup = getElementsPerGroup(arrayOfObjects);
-			//init()	;
 		});
 	</script>
 </body>

@@ -1,19 +1,13 @@
 var ProcessesGroupListMO = function (){
-	this.processesGroups1 = 	[		
-		{"id":1, "desc":"Initiating"},
-		{"id":2, "desc":"Planning"},
-		{"id":3, "desc":"Executing"},
-		{"id":4, "desc":"M&C"},
-		{"id":5, "desc":"Closing"}
-	];	
 	this.processesGroups = 	[		
-		{"id":1, "desc":"1"},
-		{"id":2, "desc":"2"},
-		{"id":3, "desc":"3"},
-		{"id":4, "desc":"4"},
-		{"id":5, "desc":"5"}
+		{"id":1, "desc":"Initiating", "isOrdered":0, "numProcesses": 1},
+		{"id":2, "desc":"Planning", "isOrdered":1, "numProcesses": 25},
+		{"id":3, "desc":"Executing", "isOrdered":0, "numProcesses": 19},
+		{"id":4, "desc":"M&C", "isOrdered":0, "numProcesses": 18},
+		{"id":5, "desc":"Closing", "isOrdered":0, "numProcesses": 9}
 	];		
 }
+
 ProcessesGroupListMO.prototype.getList = function() {return this.processesGroups;};
 
 var ProcessesListMO = function (){	
@@ -129,3 +123,28 @@ ProcessesListMO.prototype.getRandomList = function(){
 ProcessesListMO.prototype._randomize = function(a, b) {
     return Math.random() - 0.5;
 }
+
+ProcessesListMO.prototype.getResults = function(userProcesses, processesGroupList){
+	var returnArray = new Array();
+
+	for (var i = 0; i < processesGroupList.length; i++) {
+		var objectGroup = processesGroupList[i];			
+		var groupResult = new Array();
+		groupResult['num_ok'] = 0;
+		groupResult['total'] = objectGroup['numProcesses'];
+
+		for (var j = 0; j < userProcesses[objectGroup['id']].length; j++) {		
+			objectUserProcess=userProcesses[objectGroup['id']][j];
+			if (objectUserProcess['group'] == objectGroup['id']){
+				if (objectGroup['isOrdered']){
+					if (objectUserProcess['order'] == j+1) groupResult['num_ok']++;
+				}						
+				else groupResult['num_ok']++;
+			}							
+		}
+		
+		groupResult['percent'] = Math.round(groupResult['num_ok']/groupResult['total'] * 100);	
+		returnArray[objectGroup['id']]= groupResult;		
+	}	
+	return returnArray;
+}	
