@@ -1,6 +1,6 @@
 var ProcessesGroupListMO = function (){
 	this.processesGroups = 	[		
-		{"id":1, "desc":"Initiating", "isOrdered":0, "numProcesses": 1},
+		{"id":1, "desc":"Initiating", "isOrdered":0, "numProcesses": 11},
 		{"id":2, "desc":"Planning", "isOrdered":1, "numProcesses": 25},
 		{"id":3, "desc":"Executing", "isOrdered":0, "numProcesses": 19},
 		{"id":4, "desc":"M&C", "isOrdered":0, "numProcesses": 18},
@@ -11,7 +11,7 @@ var ProcessesGroupListMO = function (){
 ProcessesGroupListMO.prototype.getList = function() {return this.processesGroups;};
 
 var ProcessesListMO = function (){	
-	this.processesList = [
+	this.processesList1 = [
 		{"group":1, "order":1, "desc":"Select project manager"},
 		{"group":2, "order":1, "desc":"Plan how you will do the planning."},
 		{"group":2, "order":2, "desc":"Determine detailed Requirements."},
@@ -21,7 +21,7 @@ var ProcessesListMO = function (){
 		{"group":5, "order":1, "desc":"Confirm work is done to requirements"},
 	];
 	
-	this.processesList1 = [
+	this.processesList = [
 		{"group":1, "order":1, "desc":"Select project manager"},
 		{"group":1, "order":2, "desc":"Collect processes, procedures and historical information"},
 		{"group":1, "order":3, "desc":"Divide large projects into phases"},
